@@ -15,7 +15,7 @@ Make sure you have Node.js and npm installed on your machine.
 ### Installation
 
 1. **Clone the repository:**
-   git clone "https://github.com/AristideI/Virtulearn-fn.git"
+   git clone <https://github.com/AristideI/Virtulearn-fn.git>
 
 2. **Navigate to the project directory:**
    cd virtulearn-frontend
