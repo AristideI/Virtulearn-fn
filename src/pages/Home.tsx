@@ -1,3 +1,9 @@
+import Hero2 from "../components/Hero2";
+
 export default function HomePage() {
-  return <h1>this is the homepage</h1>;
+  return (
+    <article>
+      <Hero2 />
+    </article>
+  );
 }
