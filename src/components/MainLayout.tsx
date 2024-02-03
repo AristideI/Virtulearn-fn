@@ -1,9 +1,12 @@
 import { Outlet } from "react-router";
+import NavBar from "./Nav";
 
 export default function MainLayout() {
   return (
     <article>
-      <h1>this is the main layout </h1>
+      <section>
+        <NavBar />
+      </section>
       <Outlet />
     </article>
   );
