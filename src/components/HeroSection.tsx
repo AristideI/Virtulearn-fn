@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <article className="px-16 md:px-6 sm:px-3 flex justify-between my-12 items-center">
+    <article className="px-16 md:px-6 sm:px-3 flex justify-between mt-12 mb-20 items-center">
       <section className="w-1/2 flex flex-col gap-8">
         <p className="font-bold text-7xl">
           <span className="text-bergeL">Take Your Time</span> <br /> And Learn
