@@ -13,7 +13,7 @@ export default function Revol() {
           <p className="self-center">E-DRIVEN</p>
           <p className="self-end">EDUCATION</p>
         </div>
-        <div className="w-4/12 bg-purpleL rounded-xl p-4 flex flex-col justify-between">
+        <div className="w-4/12 bg-purpleL rounded-xl p-4 flex flex-col justify-around">
           <p className="font-bold border border-white px-6 py-1 w-fit rounded-xl">
             Welcome
           </p>
@@ -32,12 +32,52 @@ export default function Revol() {
               alt=""
             />
           </div>
-          <div className="h-1/2 w-full rounded-2xl flex gap-4">
-            <div className="h-full w-1/2 bg-yellowL rounded-2xl"></div>
-            <div className="h-full w-1/2 bg-greenL rounded-2xl"></div>
+          <div className="h-1/2 w-full rounded-2xl flex gap-4 text-black font-bold text-3xl">
+            <div className="h-full w-1/2 bg-greenL rounded-2xl flex flex-col justify-center items-center">
+              <p>125+</p>
+              <p>Courses</p>
+            </div>
+            <div className="h-full w-1/2 bg-white rounded-2xl flex flex-col justify-center items-center">
+              <p>200+</p>
+              <p>Learners</p>
+            </div>
           </div>
         </section>
-        <section className="w-7/12 h-96 bg-bergeL rounded-2xl"></section>
+        <section className="w-7/12 h-96 bg-bergeL rounded-2xl flex justify-between gap-4 p-4">
+          <section className="w-8/12 flex flex-col justify-around">
+            <div className="flex gap-2">
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+                Online education
+              </p>
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+                Discussions
+              </p>
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+                Chatting
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 text-black">
+              <p className="font-bold text-5xl border-b-2 pb-6">Flexible</p>
+              <p>
+                Dive into the latest and greatest! Our "Most Popular Courses"
+                feature the trending topics everyone is talking about. Elevate
+                your skills with the hottest picks on VirtuLearn. Stay in the
+                know, stay ahead.
+              </p>
+            </div>
+          </section>
+          <section className="w-4/12 bg-bergeD rounded-2xl p-4 flex flex-col justify-around">
+            <img
+              className="w-full h-40 object-cover rounded-2xl"
+              src="/learn.jpg"
+              alt=""
+            />
+            <div className="flex justify-between text-black text-2xl font-bold font-serif items-center">
+              <p>View Courses</p>
+              <img className="w-20" src="/right.png" alt="" />
+            </div>
+          </section>
+        </section>
       </section>
     </article>
   );
