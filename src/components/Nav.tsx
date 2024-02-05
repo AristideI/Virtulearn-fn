@@ -7,6 +7,7 @@ export default function NavBar() {
       <section className="flex gap-4 items-center md:hidden">
         <Link to="about">About</Link>
         <Link to="courses">Courses</Link>
+        <Link to="blogs">Blogs</Link>
         <Link to="contact">Contact</Link>
         <Link
           className="border-2 border-bergeL text-bergeL rounded-full px-6 py-2 font-bold"

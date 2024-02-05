@@ -1,3 +1,5 @@
+import Blogs from "../components/Blogs";
+import Footer from "../components/Footer";
 import Hero2 from "../components/Hero2";
 import Hero from "../components/HeroSection";
 import Popular from "../components/Popular";
@@ -10,6 +12,8 @@ export default function HomePage() {
       <Hero2 />
       <Popular />
       <Revol />
+      <Blogs />
+      <Footer />
     </article>
   );
 }
