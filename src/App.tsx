@@ -1,4 +1,5 @@
 import MainLayout from "./components/MainLayout.jsx";
+import AboutPage from "./pages/AboutPage.js";
 import HomePage from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import {
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
     <Route path="/">
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
