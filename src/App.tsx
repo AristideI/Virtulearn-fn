@@ -10,6 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Signup from "./pages/Signup.js";
+import BlogPage from "./pages/BlogsPage.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         <Route path="about" element={<AboutPage />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="blogs" element={<BlogPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
