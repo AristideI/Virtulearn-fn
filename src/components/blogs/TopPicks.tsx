@@ -1,6 +1,6 @@
 export default function TopPicks() {
   return (
-    <article className="mt-16 overflow-hidden">
+    <article className="my-16 overflow-hidden">
       <p className="text-center font-bold text-4xl mb-10">Top Picks</p>
       <article className="w-full flex -translate-x-[0%] transition-all duration-500 rounded-2xl">
         <section className="min-w-full h-96 bg-greenL rounded-2xl bg-[url('/1.jpg')] bg-cover relative overflow-hidden flex flex-col justify-center items-center gap-4 text-black font-semibold">

@@ -1,4 +1,6 @@
+import Footer from "../components/Footer";
 import BlogCard from "../components/blogs/BlogCard";
+import BlogGrid from "../components/blogs/BlogGrid";
 import BlogsHero from "../components/blogs/Hero";
 import TopPicks from "../components/blogs/TopPicks";
 
@@ -11,7 +13,14 @@ export default function BlogPage() {
         <BlogCard />
         <BlogCard />
       </section>
+      <section className="flex justify-between gap-14 mt-20">
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+      </section>
       <TopPicks />
+      <BlogGrid />
+      <Footer />
     </article>
   );
 }
