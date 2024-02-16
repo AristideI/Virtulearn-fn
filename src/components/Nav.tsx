@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <article className="flex justify-between items-center px-16 md:px-6 sm:px-3 py-4">
-      <img className="w-52" src="/logo.png" alt="main logo" />
+      <Link to="/">
+        <img className="w-52" src="/logo.png" alt="main logo" />
+      </Link>
       <section className="flex gap-4 items-center md:hidden">
         <Link to="about">About</Link>
         <Link to="courses">Courses</Link>

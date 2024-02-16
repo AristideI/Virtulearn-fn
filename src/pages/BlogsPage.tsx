@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import BlogCard from "../components/blogs/BlogCard";
 import BlogGrid from "../components/blogs/BlogGrid";
 import BlogsHero from "../components/blogs/Hero";
@@ -20,7 +19,6 @@ export default function BlogPage() {
       </section>
       <TopPicks />
       <BlogGrid />
-      <Footer />
     </article>
   );
 }

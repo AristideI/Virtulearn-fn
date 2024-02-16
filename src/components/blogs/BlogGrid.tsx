@@ -1,3 +1,5 @@
+import GridCard from "./GridCard";
+
 export default function BlogGrid() {
   return (
     <article className="mb-16 grid grid-cols-3 gap-6">
@@ -14,12 +16,26 @@ export default function BlogGrid() {
           Subscribe
         </button>
       </div>
-      <div className="h-96 bg-greenL rounded-2xl"></div>
-      <div className="h-96 bg-greenL rounded-2xl"></div>
-      <div className="h-96 bg-greenL rounded-2xl"></div>
-      <div className="h-96 bg-greenL rounded-2xl"></div>
-      <div className="h-96 bg-greenL rounded-2xl"></div>
-      <div className="h-96 bg-greenL col-span-2 rounded-2xl"></div>
+      <GridCard />
+      <GridCard />
+      <GridCard />
+      <GridCard />
+      <GridCard />
+      <div className="h-96 bg-greenL col-span-2 rounded-2xl flex justify-between">
+        <img className="h-full w-2/3 rounded-2xl" src="/revo.jpg" alt="" />
+        <div className="h-full w-1/3 p-4 flex flex-col justify-around">
+          <p className="font-bold font-serif text-2xl">
+            What is Virtual reality and why is it so important?
+          </p>
+          <p>
+            Explore our popular courses handpicked by learners like you. From
+            in-demand skills to cutting-edge topics.
+          </p>
+          <button className="font-bold text-xl px-4 py-1 bg-black text-white rounded-2xl">
+            Read More
+          </button>
+        </div>
+      </div>
     </article>
   );
 }
