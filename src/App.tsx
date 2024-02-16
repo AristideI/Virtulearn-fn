@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Signup from "./pages/Signup.js";
 import BlogPage from "./pages/BlogsPage.js";
+import ContactPage from "./pages/Contact.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="blogs" element={<BlogPage />} />
+        <Route path="contact" element={<ContactPage />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
