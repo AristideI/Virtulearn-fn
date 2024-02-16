@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function AboutHero() {
   return (
-    <article className="my-12 mx-16 md:mx-6 sm:mx-3 bg-purpleL/85 rounded-2xl py-12 px-10 flex flex-col gap-6">
+    <article className="my-12 mx-16 md:mx-6 sm:mx-3  rounded-2xl py-12 px-10 flex flex-col gap-6">
       <section className="flex justify-between items-center">
         <div className="w-1/2">
           <p className="bg-bergeL font-bold text-black w-fit px-8 rounded-lg">
