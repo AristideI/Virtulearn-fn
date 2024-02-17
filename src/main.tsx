@@ -9,6 +9,14 @@ const store = configureStore({
   reducer: {},
 });
 
+const title = document.title;
+window.addEventListener("blur", () => {
+  document.title = "VirtuLearn is here 😏";
+});
+window.addEventListener("focus", () => {
+  document.title = title;
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
