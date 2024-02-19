@@ -1,21 +1,21 @@
 export default function Blogs() {
   return (
-    <article className="px-16 md:px-6 sm:px-3 my-20 flex justify-between items-center gap-4">
-      <section className="w-7/12 flex flex-col gap-4">
-        <div className="flex items-start gap-2 justify-between">
-          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl">
+    <article className="px-16 md:px-6 sm:px-3 my-20 flex justify-between items-center gap-4 md:flex-col">
+      <section className="w-7/12 flex flex-col gap-4 md:w-full">
+        <div className="flex items-start gap-2 justify-between overflow-x-scroll no-scrollbar">
+          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl whitespace-nowrap">
             Educational
           </p>
-          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl">
+          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl whitespace-nowrap">
             Health
           </p>
-          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl">
+          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl whitespace-nowrap">
             Artificial Intelligence
           </p>
-          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl">
+          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl whitespace-nowrap">
             Programming
           </p>
-          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl">
+          <p className="font-bold bg-bergeL text-black py-1 px-6 rounded-xl whitespace-nowrap">
             ML
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function Blogs() {
           </div>
         </div>
       </section>
-      <section className="w-5/12 flex flex-col justify-between gap-4">
+      <section className="w-5/12 md:w-full flex flex-col justify-between gap-4">
         <div className="w-full h-72 rounded-2xl relative overflow-hidden flex flex-col justify-end">
           <img
             className="w-full h-full absolute top-0 left-0 object-cover"

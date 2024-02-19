@@ -2,7 +2,7 @@ export default function Revol() {
   return (
     <article className="px-16 md:px-6 sm:px-3 mt-20">
       <section className="flex justify-between gap-4">
-        <div className="w-8/12 flex flex-col justify-between gap-4 text-7xl items-start">
+        <div className="w-8/12 flex flex-col justify-between gap-4 text-7xl md:text-6xl sm:text-4xl items-start md:w-full">
           <p className="self-end">REVOLUTIONIZE</p>
           <p>
             LEARNING{" "}
@@ -13,7 +13,7 @@ export default function Revol() {
           <p className="self-center">E-DRIVEN</p>
           <p className="self-end">EDUCATION</p>
         </div>
-        <div className="w-4/12 bg-purpleL rounded-xl p-4 flex flex-col justify-around">
+        <div className="w-4/12 bg-purpleL rounded-xl p-4 flex flex-col justify-around md:hidden">
           <p className="font-bold border border-white px-6 py-1 w-fit rounded-xl">
             Welcome
           </p>
@@ -23,8 +23,8 @@ export default function Revol() {
           </p>
         </div>
       </section>
-      <section className="flex justify-between gap-4 mt-20">
-        <section className="w-5/12 h-96 rounded-2xl flex flex-col gap-4">
+      <section className="flex justify-between gap-4 mt-20 md:flex-col">
+        <section className="w-5/12 h-96 rounded-2xl flex flex-col gap-4 md:w-full">
           <div className="h-1/2 w-full bg-yellowL rounded-2xl overflow-hidden">
             <img
               src="/revo.jpg"
@@ -43,16 +43,16 @@ export default function Revol() {
             </div>
           </div>
         </section>
-        <section className="w-7/12 h-96 bg-bergeL rounded-2xl flex justify-between gap-4 p-4">
-          <section className="w-8/12 flex flex-col justify-around">
+        <section className="w-7/12 h-96 bg-bergeL rounded-2xl flex justify-between gap-4 p-4 md:w-full">
+          <section className="w-8/12 flex flex-col justify-around sm:w-full">
             <div className="flex gap-2">
-              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap md:text-sm sm:text-xs">
                 Online education
               </p>
-              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap md:text-sm sm:text-xs">
                 Discussions
               </p>
-              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap">
+              <p className="font-bold bg-black w-fit px-6 rounded-2xl py-1 whitespace-nowrap md:text-sm sm:text-xs">
                 Chatting
               </p>
             </div>
@@ -66,7 +66,7 @@ export default function Revol() {
               </p>
             </div>
           </section>
-          <section className="w-4/12 bg-bergeD rounded-2xl p-4 flex flex-col justify-around">
+          <section className="w-4/12 bg-bergeD rounded-2xl p-4 flex flex-col justify-around sm:hidden">
             <img
               className="w-full h-40 object-cover rounded-2xl"
               src="/learn.jpg"
