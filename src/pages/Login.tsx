@@ -4,8 +4,8 @@ export default function Login() {
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
       <section className="w-1/2 h-full flex flex-col justify-center items-center gap-6">
-        <p className="font-bold font-serif italic text-4xl">Welcome to focus</p>
-        <p>Register your account</p>
+        <p className="font-bold font-serif italic text-4xl">Welcome Back</p>
+        <p>Welcome back! Please enter your details</p>
         <form className="w-4/6 flex flex-col gap-5">
           <label className="flex flex-col gap-1">
             Email
