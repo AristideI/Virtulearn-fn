@@ -14,6 +14,7 @@ type formInputs = {
   password: string;
   confirmPwd: string;
   role: Roles;
+  pfp: any;
 };
 
 export default function Signup() {
@@ -32,7 +33,10 @@ export default function Signup() {
     password,
     confirmPwd,
     role,
+    pfp,
   }: formInputs) {
+    console.log(confirmPwd);
+    console.log(pfp)
     const response = await axios.post("http://localhost:4000/auth/signup", {
       firstName,
       lastName,
@@ -47,11 +51,12 @@ export default function Signup() {
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
       <section className="w-1/2 h-full flex flex-col justify-center items-center gap-6">
-        <p className="font-bold font-serif italic text-4xl">Welcome Back</p>
-        <p>Welcome back! Please enter your details</p>
+        <p className="font-bold font-serif italic text-4xl">Welcome to focus</p>
+        <p>Register your account</p>
         <form
           className="w-full flex flex-col gap-5"
           onSubmit={handleSubmit(onsubmitForm)}
+          encType="multipart/form-data"
         >
           <div className="flex justify-between gap-4">
             <label className="flex flex-col gap-1 w-full">
@@ -136,6 +141,14 @@ export default function Signup() {
               {errors.confirmPwd?.type === "passwordsMatch" && (
                 <span>Passwords must match</span>
               )}
+            </label>
+            <label htmlFor="pfp">
+              <input
+                className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
+                type="file"
+                id="pfp"
+                {...register("pfp")}
+              />
             </label>
           </div>
 
