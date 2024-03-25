@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
-  const isLogged = true;
+  const isLogged = false;
   return (
     <article className=" px-16 md:px-6 sm:px-3 py-4 border-b border-white/65">
       <article className="flex justify-between items-center mb-4">
