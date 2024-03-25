@@ -57,7 +57,7 @@ export default function NavBar() {
           </section>
         )}
       </article>
-      <section className="flex  gap-5  text-lg">
+      <section className="flex gap-5 text-lg">
         <p>Home</p>
         <p>My Leaning</p>
         <p>Messages</p>

@@ -1,18 +1,34 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-
+type loginInputs = {
+  email: string;
+  password: string;
+};
 export default function Login() {
+  const {
+    register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm<loginInputs>();
+  function handleLogin(formData: loginInputs) {
+    console.log(formData);
+  }
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
       <section className="w-1/2 h-full flex flex-col justify-center items-center gap-6">
-        <p className="font-bold font-serif italic text-4xl">Welcome to focus</p>
-        <p>Register your account</p>
-        <form className="w-4/6 flex flex-col gap-5">
+        <p className="font-bold font-serif italic text-4xl">Welcome Back</p>
+        <p>Welcome back! Please enter your details</p>
+        <form
+          className="w-4/6 flex flex-col gap-5"
+          onSubmit={handleSubmit(handleLogin)}
+        >
           <label className="flex flex-col gap-1">
             Email
             <input
               className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
               type="email"
               placeholder="Enter your email"
+              {...register("email")}
             />
           </label>
           <label className="flex flex-col gap-1">
@@ -21,6 +37,7 @@ export default function Login() {
               className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
               type="password"
               placeholder="Enter your password"
+              {...register("password")}
             />
           </label>
 

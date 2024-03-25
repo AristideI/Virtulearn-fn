@@ -73,7 +73,7 @@ export default function Hero2() {
           <div className="h-60 w-7/12 border-2 border-white rounded-xl md:w-full">
             <iframe
               className="w-full h-full"
-              src="/public/embed/embed.html"
+              src="/embed/embed.html"
             ></iframe>
           </div>
         </section>
