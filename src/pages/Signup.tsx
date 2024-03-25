@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios, { Axios } from "axios";
-
+import reactdotenv from "react-dotenv";
+reactdotenv.config();
+const imgurApi = process.env.IMG_UR;
 enum Roles {
   MENTOR = "mentor",
   STUDENT = "student",
@@ -16,7 +18,6 @@ type formInputs = {
   role: Roles;
   pfp: any;
 };
-
 export default function Signup() {
   const {
     register,
@@ -36,17 +37,20 @@ export default function Signup() {
     pfp,
   }: formInputs) {
     console.log(confirmPwd);
-    console.log(pfp)
-    const response = await axios.post("http://localhost:4000/auth/signup", {
-      firstName,
-      lastName,
-      email,
-      phone: phoneNumber,
-      password,
-      isMentor: role === "mentor" ? true : false,
-    });
+    console.log(pfp);
+    const response = await axios.post(imgurApi, pfp)
+    console.log(response)
 
-    console.log(response);
+    // const response = await axios.post("http://localhost:4000/auth/signup", {
+    //   firstName,
+    //   lastName,
+    //   email,
+    //   phone: phoneNumber,
+    //   password,
+    //   isMentor: role === "mentor" ? true : false,
+    // });
+
+    // console.log(response);
   }
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
