@@ -1,57 +1,62 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import axios, { Axios } from "axios";
-import reactdotenv from "react-dotenv";
-reactdotenv.config();
-const imgurApi = process.env.IMG_UR;
-enum Roles {
-  MENTOR = "mentor",
-  STUDENT = "student",
-}
-type formInputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: number;
-  password: string;
-  confirmPwd: string;
-  role: Roles;
-  pfp: any;
-};
+import { Link, useNavigate } from "react-router-dom";
+import { formInputs } from "../interfaces";
+import createUser from "../utils/createUser";
+import { useState } from "react";
+import toast from "react-hot-toast";
+
 export default function Signup() {
+  const navigate = useNavigate();
+  const [image, setImage] = useState<File | null>(null);
+  const [imgError, setImgError] = useState(false);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<formInputs>();
+
   const passwordValue = watch("password");
-  async function onsubmitForm({
-    firstName,
-    lastName,
-    email,
-    phoneNumber,
-    password,
-    confirmPwd,
-    role,
-    pfp,
-  }: formInputs) {
-    console.log(confirmPwd);
-    console.log(pfp);
-    const response = await axios.post(imgurApi, pfp)
-    console.log(response)
 
-    // const response = await axios.post("http://localhost:4000/auth/signup", {
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   phone: phoneNumber,
-    //   password,
-    //   isMentor: role === "mentor" ? true : false,
-    // });
-
-    // console.log(response);
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Check if size is greater than 3MB
+      if (file.size > 3500000) {
+        alert("Image size must not exceed 3MB");
+        e.target.value = "";
+        return;
+      }
+      setImage(file);
+    } else {
+      setImage(null);
+    }
   }
+
+  async function onsubmitForm(data: formInputs) {
+    if (!image) {
+      setImgError(true);
+      return;
+    }
+
+    try {
+      await createUser({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phoneNumber,
+        password: data.password,
+        confirmPassword: data.confirmPwd,
+        profilePicture: "https://i.imgur.com/PUUBUIE.jpeg",
+        isMentor: data.role === "mentor",
+      });
+      toast.success("Sign up successful! Please log in.");
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
       <section className="w-1/2 h-full flex flex-col justify-center items-center gap-6">
@@ -82,17 +87,17 @@ export default function Signup() {
               />
             </label>
           </div>
-          <label className="flex flex-col gap-1">
-            Email
-            <input
-              className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
-              type="email"
-              placeholder="Enter your email"
-              {...register("email")}
-            />
-          </label>
           <div className="flex justify-between gap-4">
-            <label className="flex flex-col gap-1 w-full">
+            <label className="flex flex-col gap-1 w-1/2">
+              Email
+              <input
+                className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
+                type="email"
+                placeholder="Enter your email"
+                {...register("email")}
+              />
+            </label>
+            <label className="flex flex-col gap-1 w-1/2">
               Phone number
               <input
                 className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
@@ -101,7 +106,10 @@ export default function Signup() {
                 {...register("phoneNumber")}
               />
             </label>
-            <label className="flex flex-col gap-1 w-full">
+          </div>
+
+          <div className="flex justify-between gap-4">
+            <label className="flex flex-col gap-1 w-1/2">
               Role
               <select
                 className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
@@ -117,6 +125,18 @@ export default function Signup() {
                   Student
                 </option>
               </select>
+            </label>
+            <label htmlFor="pfp" className="flex flex-col gap-1 w-1/2">
+              Profile Picture
+              <input
+                className="bg-greenL/0 border border-white rounded-lg px-4 py- outline-none"
+                type="file"
+                id="pfp"
+                accept="image/*"
+                size={2097152}
+                onChange={(e) => handleImageChange(e)}
+              />
+              {imgError && <p className="text-bergeD">Image is required</p>}
             </label>
           </div>
           <div className="flex justify-between gap-4">
@@ -145,14 +165,6 @@ export default function Signup() {
               {errors.confirmPwd?.type === "passwordsMatch" && (
                 <span>Passwords must match</span>
               )}
-            </label>
-            <label htmlFor="pfp">
-              <input
-                className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
-                type="file"
-                id="pfp"
-                {...register("pfp")}
-              />
             </label>
           </div>
 

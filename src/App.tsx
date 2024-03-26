@@ -3,6 +3,7 @@ import AboutPage from "./pages/AboutPage.js";
 import HomePage from "./pages/Home.jsx";
 import Login from "./pages/Login.js";
 import NotFound from "./pages/NotFound.jsx";
+import authLoader from "./loaders/authLoader.js";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -13,6 +14,7 @@ import Signup from "./pages/Signup.js";
 import BlogPage from "./pages/BlogsPage.js";
 import ContactPage from "./pages/Contact.js";
 import CoursesPage from "./pages/Courses";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +22,8 @@ const router = createBrowserRouter(
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} loader={authLoader} />
+        <Route path="signup" element={<Signup />} loader={authLoader} />
         <Route path="blogs" element={<BlogPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="courses" element={<CoursesPage />} />
@@ -34,6 +36,7 @@ export default function App() {
   return (
     <div>
       <RouterProvider router={router} />
+      <Toaster />
     </div>
   );
 }

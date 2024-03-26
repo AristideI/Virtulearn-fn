@@ -1,18 +1,31 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logUser from "../utils/logUser";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useAuthContext } from "../../context/AuthContext";
 type loginInputs = {
   email: string;
   password: string;
 };
+
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm<loginInputs>();
-  function handleLogin(formData: loginInputs) {
-    console.log(formData);
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
+  const [error, setError] = useState(false);
+  const { register, handleSubmit } = useForm<loginInputs>();
+
+  async function handleLogin(formData: loginInputs) {
+    try {
+      const user = await logUser(formData);
+      login({ user, token: user.token });
+      navigate("/");
+    } catch (error) {
+      setError(true);
+      toast.error("Invalid email or password");
+    }
   }
+
   return (
     <article className="px-16 md:px-7 sm:px-3 h-[90vh] flex justify-between gap-8">
       <section className="w-1/2 h-full flex flex-col justify-center items-center gap-6">
@@ -22,7 +35,7 @@ export default function Login() {
           className="w-4/6 flex flex-col gap-5"
           onSubmit={handleSubmit(handleLogin)}
         >
-          <label className="flex flex-col gap-1">
+          <label className="flex flex-col gap-1 w-full">
             Email
             <input
               className="bg-greenL/0 border border-white rounded-lg px-4 py-1 outline-none"
@@ -40,6 +53,9 @@ export default function Login() {
               {...register("password")}
             />
           </label>
+          {error && (
+            <p className="text-sm text-bergeD">Invalid UserName or Password</p>
+          )}
 
           <Link className="self-end -mt-2" to="forgot">
             Forgot Password?
