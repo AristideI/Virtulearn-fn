@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function NavBar() {
-  const isLogged = false;
+  const { isLogged, user } = useAuthContext();
   return (
     <article className=" px-16 md:px-6 sm:px-3 py-4 border-b border-white/65">
       <article className="flex justify-between items-center mb-4">
@@ -10,14 +11,24 @@ export default function NavBar() {
         </Link>
         {isLogged ? (
           <section className="flex gap-6 items-center md:hidden group">
-            <p className="font-bold text-lg">Blogs</p>
-            <img src="/message.png" className="w-5" alt="" />
+            <Link to="/blogs" className="font-bold text-lg">
+              Blogs
+            </Link>
+            <Link to="/messages" className="font-bold text-lg">
+              <img src="/message.png" className="w-5" alt="" />
+            </Link>
             <div className="relative">
               <div className="flex items-center gap-4 font-bold text-lg border-l border-white pl-6">
                 <div className="w-11 h-11 rounded-full bg-white grid place-content-center text-black">
-                  AI
+                  <img
+                    src={user?.profilePicture}
+                    className="w-full h-full rounded-full"
+                    alt=""
+                  />
                 </div>
-                <p>Aristide Isingizwe</p>
+                <p>
+                  {user?.firstName} {user?.lastName}
+                </p>
                 <img src="/down.png" className="w-6" alt="" />
               </div>
               <aside className="absolute top-full right-0 w-96 rounded-xl  bg-white text-black px-4 py-2 font-bold hidden hover:block group-hover:block">
@@ -57,11 +68,14 @@ export default function NavBar() {
           </section>
         )}
       </article>
-      <section className="flex gap-5 text-lg">
-        <p>Home</p>
-        <p>My Leaning</p>
-        <p>Messages</p>
-      </section>
+      {isLogged && (
+        <section className="flex gap-5 text-lg">
+          <Link to="Home">Home</Link>
+          <Link to="/courses">My Learning</Link>
+          <Link to="/blogs">Blogs</Link>
+          <Link to="/messages">Messages</Link>
+        </section>
+      )}
     </article>
   );
 }
