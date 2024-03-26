@@ -15,6 +15,7 @@ import BlogPage from "./pages/BlogsPage.js";
 import ContactPage from "./pages/Contact.js";
 import CoursesPage from "./pages/Courses";
 import { Toaster } from "react-hot-toast";
+import AddBlog from "./pages/AddBlog.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={authLoader} />
         <Route path="signup" element={<Signup />} loader={authLoader} />
         <Route path="blogs" element={<BlogPage />} />
+        <Route path="blogs/add" element={<AddBlog />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="courses" element={<CoursesPage />} />
         <Route path="*" element={<NotFound />} />
