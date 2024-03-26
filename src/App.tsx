@@ -16,6 +16,7 @@ import ContactPage from "./pages/Contact.js";
 import CoursesPage from "./pages/Courses";
 import { Toaster } from "react-hot-toast";
 import AddBlog from "./pages/AddBlog.js";
+import AddCourse from "./pages/AddCourse.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         <Route path="blogs/add" element={<AddBlog />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="courses" element={<CoursesPage />} />
+        <Route path="/courses/add" element={<AddCourse />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Route>

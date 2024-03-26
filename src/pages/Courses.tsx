@@ -1,3 +1,35 @@
+import { Link } from "react-router-dom";
+import CourseCard from "../components/courses/CourseCard";
+
 export default function CoursesPage() {
-  return <h1>courses page</h1>;
+  return (
+    <article className="px-16 md:px-6 sm:px-3">
+      <section className="flex justify-between items-center">
+        <section className="flex flex-col gap-6 justify-center  w-1/2 my-12">
+          <p className="font-bold text-6xl">Most Popular Courses</p>
+          <p>
+            Dive into the latest and greatest! Our "Most Popular Courses"
+            feature the trending topics everyone is talking about. Elevate your
+            skills with the hottest picks on VirtuLearn. Stay in the know, stay
+            ahead.
+          </p>
+        </section>
+        <Link
+          to="/courses/add"
+          className="text-xl px-8 py-2 rounded-xl bg-greenD font-semibold"
+        >
+          Add Course
+        </Link>
+      </section>
+      <section className="grid grid-cols-3 gap-4">
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+        <CourseCard />
+      </section>
+    </article>
+  );
 }
