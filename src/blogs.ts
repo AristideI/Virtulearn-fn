@@ -1,5 +1,6 @@
 export const ai = {
   title: "Introduction to Machine Learning",
+  id: 1,
   coverImage:
     "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   content: `This is the first of the series of our work at Netflix on leveraging data insights and Machine Learning (ML) to improve the operational automation around the performance and cost efficiency of big data jobs. Operational automation–including but not limited to, auto diagnosis, auto remediation, auto configuration, auto tuning, auto scaling, auto debugging, and auto testing–is key to the success of modern data platforms. In this blog post, we present our project on Auto Remediation, which integrates the currently used rule-based classifier with an ML service and aims to automatically remediate failed jobs without human intervention. We have deployed Auto Remediation in production for handling memory configuration errors and unclassified errors of Spark jobs and observed its efficiency and effectiveness (e.g., automatically remediating 56% of memory configuration errors and saving 50% of the monetary costs caused by all errors) and great potential for further improvements.
@@ -34,6 +35,7 @@ Multi-objective optimizations. Auto Remediation generates recommendations by con
 
 export const health = {
   title: "Maintaining a Healthy Lifestyle",
+  id: 2,
   coverImage:
     "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   content: `I had my annual physical at the doctor’s a few days ago– I went to a new doctor because I didn’t like my old one (Note: Yes, if you don’t like your doctor you should switch! They are providing a service, and especially when it comes to your health, you should be working with individuals that care for you, and that you trust).
