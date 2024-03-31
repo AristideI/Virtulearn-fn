@@ -1,15 +1,31 @@
-export default function CourseCard() {
+import { Link } from "react-router-dom";
+
+interface CourseCardProps {
+  title: string;
+  coverImage: string;
+  author: string;
+  enrolledStudents: number;
+  id: string;
+}
+
+export default function CourseCard({
+  title,
+  coverImage,
+  author,
+  enrolledStudents,
+  id,
+}: CourseCardProps) {
   return (
-    <section className="flex flex-col gap-1">
+    <Link to={`/courses/${id}`} className="flex flex-col gap-1">
       <img
         className="h-48 w-full object-cover rounded-xl"
-        src="/course.jpg"
+        src={coverImage}
         alt=""
       />
-      <p className="font-bold text-2xl">Mathematics for Machine learning</p>
-      <p className="">Aristide Isingizwe</p>
-      <p className="font-bold text-lg">(+120 enrolled students)</p>
+      <p className="font-bold text-2xl">{title}</p>
+      <p className="">{author}</p>
+      <p className="font-bold text-lg">{enrolledStudents}</p>
       <p className="font-bold">Free</p>
-    </section>
+    </Link>
   );
 }

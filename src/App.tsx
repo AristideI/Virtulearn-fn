@@ -19,6 +19,7 @@ import AddBlog from "./pages/AddBlog.js";
 import AddCourse from "./pages/AddCourse.js";
 import Messages from "./pages/Messages.js";
 import ShowBlog from "./pages/ShowBlog.js";
+import LearnCourse from "./pages/LearnCourse.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
         <Route path="blogs/add" element={<AddBlog />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="courses" element={<CoursesPage />} />
+        <Route path="courses/:id" element={<LearnCourse />} />
         <Route path="/courses/add" element={<AddCourse />} />
         <Route path="messages" element={<Messages />} />
         <Route path="*" element={<NotFound />} />
