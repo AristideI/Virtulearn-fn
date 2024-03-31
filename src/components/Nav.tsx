@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 
 export default function NavBar() {
-  const { isLogged, user } = useAuthContext();
+  const { isLogged, user, logout } = useAuthContext();
+
+  function handleLogout() {
+    logout();
+  }
+
   return (
     <article className=" px-16 md:px-6 sm:px-3 py-4 border-b border-white/65">
       <article className="flex justify-between items-center mb-4">
@@ -43,7 +48,12 @@ export default function NavBar() {
                   <p className="hover:text-purpleL py-2">Get Help</p>
                 </div>
 
-                <p className="hover:text-purpleL py-2">Logout</p>
+                <button
+                  onClick={handleLogout}
+                  className="hover:text-purpleL py-2"
+                >
+                  Logout
+                </button>
               </aside>
             </div>
           </section>
@@ -70,7 +80,7 @@ export default function NavBar() {
       </article>
       {isLogged && (
         <section className="flex gap-5 text-lg">
-          <Link to="Home">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/courses">My Learning</Link>
           <Link to="/blogs">Blogs</Link>
           <Link to="/messages">Messages</Link>
