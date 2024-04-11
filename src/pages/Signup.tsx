@@ -4,11 +4,15 @@ import { formInputs } from "../interfaces";
 import createUser from "../utils/createUser";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import uploadImage from "../utils/uploadImg";
+import Loading from "react-loading";
 
 export default function Signup() {
   const navigate = useNavigate();
   const [image, setImage] = useState<File | null>(null);
   const [imgError, setImgError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -38,8 +42,10 @@ export default function Signup() {
       setImgError(true);
       return;
     }
-
+    setIsLoading(true);
     try {
+      const profilePicture = await uploadImage(image);
+
       await createUser({
         firstName: data.firstName,
         lastName: data.lastName,
@@ -47,13 +53,15 @@ export default function Signup() {
         phone: data.phoneNumber,
         password: data.password,
         confirmPassword: data.confirmPwd,
-        profilePicture: "https://i.imgur.com/PUUBUIE.jpeg",
+        profilePicture,
         isMentor: data.role === "mentor",
       });
       toast.success("Sign up successful! Please log in.");
       navigate("/login");
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -170,9 +178,13 @@ export default function Signup() {
 
           <button
             type="submit"
-            className="bg-bergeL text-black font-bold text-xl py-1 rounded-2xl"
+            className="bg-bergeL text-black font-bold text-xl py-1 rounded-2xl grid place-content-center"
           >
-            Sign up
+            {isLoading ? (
+              <Loading type="spin" color="#191919" width={30} height={30} />
+            ) : (
+              "Sign up"
+            )}
           </button>
         </form>
         <p>

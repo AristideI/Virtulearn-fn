@@ -4,6 +4,8 @@ import logUser from "../utils/logUser";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../../context/AuthContext";
+import Loading from "react-loading";
+
 type loginInputs = {
   email: string;
   password: string;
@@ -14,8 +16,10 @@ export default function Login() {
   const { login } = useAuthContext();
   const [error, setError] = useState(false);
   const { register, handleSubmit } = useForm<loginInputs>();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleLogin(formData: loginInputs) {
+    setIsLoading(true);
     try {
       const user = await logUser(formData);
       login({ user, token: user.token });
@@ -23,6 +27,8 @@ export default function Login() {
     } catch (error) {
       setError(true);
       toast.error("Invalid email or password");
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -60,8 +66,12 @@ export default function Login() {
           <Link className="self-end -mt-2" to="forgot">
             Forgot Password?
           </Link>
-          <button className="bg-bergeL text-black font-bold text-xl py-1 rounded-2xl">
-            Log in
+          <button className="bg-bergeL text-black font-bold text-xl py-1 rounded-2xl grid place-content-center">
+            {isLoading ? (
+              <Loading type="spin" color="#191919" width={30} height={30} />
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
         <p>
