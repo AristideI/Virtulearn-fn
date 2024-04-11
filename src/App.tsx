@@ -20,6 +20,8 @@ import AddCourse from "./pages/AddCourse.js";
 import Messages from "./pages/Messages.js";
 import ShowBlog from "./pages/ShowBlog.js";
 import LearnCourse from "./pages/LearnCourse.js";
+import ProfilePage from "./pages/Profile.js";
+import SettingsPage from "./pages/Settings.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
         <Route path="about" element={<AboutPage />} />
         <Route path="login" element={<Login />} loader={authLoader} />
         <Route path="signup" element={<Signup />} loader={authLoader} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="settings" element={<SettingsPage />} />
         <Route path="blogs" element={<BlogPage />} />
         <Route path="blogs/:id" element={<ShowBlog />} />
         <Route path="blogs/add" element={<AddBlog />} />

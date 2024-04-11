@@ -15,14 +15,14 @@ export default function NavBar() {
           <img className="w-52" src="/logo.png" alt="main logo" />
         </Link>
         {isLogged ? (
-          <section className="flex gap-6 items-center md:hidden group">
+          <section className="flex gap-6 items-center md:hidden">
             <Link to="/blogs" className="font-bold text-lg">
               Blogs
             </Link>
             <Link to="/messages" className="font-bold text-lg">
               <img src="/message.png" className="w-5" alt="" />
             </Link>
-            <div className="relative">
+            <div className="relative group">
               <div className="flex items-center gap-4 font-bold text-lg border-l border-white pl-6">
                 <div className="w-11 h-11 rounded-full bg-white grid place-content-center text-black">
                   <img
@@ -38,14 +38,44 @@ export default function NavBar() {
               </div>
               <aside className="absolute top-full right-0 w-96 rounded-xl  bg-white text-black px-4 py-2 font-bold hidden hover:block group-hover:block">
                 <div className="border-b border-black pb-2 flex flex-col gap-2">
-                  <p className="hover:text-purpleL py-2">Profile</p>
-                  <p className="hover:text-purpleL py-2">Settings</p>
+                  <Link
+                    to="/profile"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    to="/settings"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    Settings
+                  </Link>
                 </div>
                 <div className="border-b border-black pb-2 flex flex-col gap-2">
-                  <p className="hover:text-purpleL py-2">My Messages</p>
-                  <p className="hover:text-purpleL py-2">My Learning</p>
-                  <p className="hover:text-purpleL py-2">My Blogs</p>
-                  <p className="hover:text-purpleL py-2">Get Help</p>
+                  <Link
+                    to="/messages"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    My Messages
+                  </Link>
+                  <Link
+                    to="/courses"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    My Learning
+                  </Link>
+                  <Link
+                    to="/blogs"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    My Blogs
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="hover:text-purpleL py-2 hover:bg-black/15"
+                  >
+                    Get Help
+                  </Link>
                 </div>
 
                 <button
