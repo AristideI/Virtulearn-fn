@@ -3,7 +3,7 @@ import AboutPage from "./pages/AboutPage.js";
 import HomePage from "./pages/Home.jsx";
 import Login from "./pages/Login.js";
 import NotFound from "./pages/NotFound.jsx";
-import authLoader from "./loaders/authLoader.js";
+import authLoader, { redirectLoader } from "./loaders/authLoader.js";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -31,16 +31,32 @@ const router = createBrowserRouter(
         <Route path="about" element={<AboutPage />} />
         <Route path="login" element={<Login />} loader={authLoader} />
         <Route path="signup" element={<Signup />} loader={authLoader} />
-        <Route path="profile" element={<ProfilePage />} />
-        <Route path="settings" element={<SettingsPage />} />
+        <Route
+          path="profile"
+          element={<ProfilePage />}
+          loader={redirectLoader}
+        />
+        <Route
+          path="settings"
+          element={<SettingsPage />}
+          loader={redirectLoader}
+        />
         <Route path="blogs" element={<BlogPage />} />
         <Route path="blogs/:id" element={<ShowBlog />} />
-        <Route path="blogs/add" element={<AddBlog />} />
+        <Route path="blogs/add" element={<AddBlog />} loader={redirectLoader} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="courses" element={<CoursesPage />} />
-        <Route path="courses/:id" element={<LearnCourse />} />
-        <Route path="/courses/add" element={<AddCourse />} />
-        <Route path="messages" element={<Messages />} />
+        <Route
+          path="courses/:id"
+          element={<LearnCourse />}
+          loader={redirectLoader}
+        />
+        <Route
+          path="/courses/add"
+          element={<AddCourse />}
+          loader={redirectLoader}
+        />
+        <Route path="messages" element={<Messages />} loader={redirectLoader} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Route>

@@ -31,7 +31,6 @@ export default function BlogPage() {
       ) : (
         <section className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-14 mt-12">
           {blogCards}
-          {blogCards}
         </section>
       )}
       <TopPicks />

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContextProps, UserDto } from "../src/interfaces";
+import { redirect } from "react-router";
 
 const AuthContext = createContext<AuthContextProps>({
   user: null,
@@ -31,6 +32,7 @@ export default function AuthContextProvider({
     setToken(null);
     setIsLogged(false);
     localStorage.removeItem("token");
+    redirect("/");
   }
 
   useEffect(() => {
