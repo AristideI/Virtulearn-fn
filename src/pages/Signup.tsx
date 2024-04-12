@@ -5,7 +5,7 @@ import createUser from "../utils/createUser";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import uploadImage from "../utils/uploadImg";
-import Loading from "react-loading";
+import LoadingSpinner from "../components/Loading";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -180,11 +180,7 @@ export default function Signup() {
             type="submit"
             className="bg-bergeL text-black font-bold text-xl py-1 rounded-2xl grid place-content-center"
           >
-            {isLoading ? (
-              <Loading type="spin" color="#191919" width={30} height={30} />
-            ) : (
-              "Sign up"
-            )}
+            {isLoading ? <LoadingSpinner /> : "Sign up"}
           </button>
         </form>
         <p>

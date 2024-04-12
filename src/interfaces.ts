@@ -45,3 +45,31 @@ export interface AuthContextProps {
   login: ({ user, token }: { user: UserDto; token: string }) => void;
   logout: () => void;
 }
+
+export interface CreateBlogDto {
+  title: string;
+  content: string;
+  coverImage: string;
+}
+
+export interface BlogDto {
+  authorId: string;
+  content: string;
+  coverImage: string;
+  createdAt: string;
+  discussions: [];
+  title: string;
+  updatedAt: string;
+  _id: string;
+}
+
+export interface BlogCardProps {
+  authorId: UserDto;
+  content: string;
+  coverImage: string;
+  createdAt: string;
+  discussions: [];
+  title: string;
+  updatedAt: string;
+  _id: string;
+}
