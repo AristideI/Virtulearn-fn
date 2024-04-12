@@ -68,8 +68,15 @@ export interface BlogCardProps {
   content: string;
   coverImage: string;
   createdAt: string;
-  discussions: [];
+  discussions: DiscussionDto[];
   title: string;
   updatedAt: string;
+  _id: string;
+}
+
+export interface DiscussionDto {
+  author: string;
+  content: string;
+  createdAt: string;
   _id: string;
 }
