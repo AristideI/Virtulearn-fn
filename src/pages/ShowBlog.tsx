@@ -32,7 +32,6 @@ export default function ShowBlog() {
       const currentAuthor = allUsers?.find(
         (user) => user._id === discussion.author
       );
-      console.log(currentAuthor);
       return (
         <Comment
           key={ind}
