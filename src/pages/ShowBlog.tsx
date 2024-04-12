@@ -15,7 +15,7 @@ dayjs.extend(relativeTime);
 export default function ShowBlog() {
   const id = useParams().id as string;
   const { blog, isLoading, error } = useGetOneBlog({ id: id });
-  const { user: currentUser } = useAuthContext();
+  const { user: currentUser, isLogged } = useAuthContext();
   const [comment, setComment] = useState("");
   const { users: allUsers, isLoading: isUsersLoading } = useGetUsers();
 
@@ -89,33 +89,35 @@ export default function ShowBlog() {
       </section>
       <img className="w-full h-96 object-cover" src={blog.coverImage} alt="" />
       <p className="text-xl">{blog.content}</p>
-      <section>
-        <p className="font-bold text-3xl">Discussions</p>
-        <div>
-          <section className="flex gap-6 mt-12">
-            <img
-              src={currentUser?.profilePicture}
-              className="w-12 h-12 object-cover rounded-full"
-            />
-            <textarea
-              name="message"
-              className="w-1/2 h-24 bg-bergeL/0 outline-none border border-bergeL rounded-xl p-4"
-              placeholder="Write a comment"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            ></textarea>
-          </section>
-          <button
-            className="bg-bergeL text-black px-8 py-2 rounded-lg my-8"
-            onClick={handleComment}
-          >
-            Share
-          </button>
-        </div>
-        <div className="flex flex-col gap-6 w-2/3 mx-auto">
-          {discussions && discussions.length ? discussions : null}
-        </div>
-      </section>
+      {isLogged && (
+        <section>
+          <p className="font-bold text-3xl">Discussions</p>
+          <div>
+            <section className="flex gap-6 mt-12">
+              <img
+                src={currentUser?.profilePicture}
+                className="w-12 h-12 object-cover rounded-full"
+              />
+              <textarea
+                name="message"
+                className="w-1/2 h-24 bg-bergeL/0 outline-none border border-bergeL rounded-xl p-4"
+                placeholder="Write a comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+            </section>
+            <button
+              className="bg-bergeL text-black px-8 py-2 rounded-lg my-8"
+              onClick={handleComment}
+            >
+              Share
+            </button>
+          </div>
+          <div className="flex flex-col gap-6 w-2/3 mx-auto">
+            {discussions && discussions.length ? discussions : null}
+          </div>
+        </section>
+      )}
     </article>
   ) : (
     <LoadingSection />
