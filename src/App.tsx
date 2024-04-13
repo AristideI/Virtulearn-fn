@@ -1,7 +1,7 @@
 import MainLayout from "./components/MainLayout.jsx";
 import AboutPage from "./pages/AboutPage.js";
 import HomePage from "./pages/Home.jsx";
-import Login from "./pages/Login.js";
+import Login from "./pages/auth/Login.js";
 import NotFound from "./pages/NotFound.jsx";
 import authLoader, { redirectLoader } from "./loaders/authLoader.js";
 import {
@@ -10,18 +10,18 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Signup from "./pages/Signup.js";
-import BlogPage from "./pages/BlogsPage.js";
+import Signup from "./pages/auth/Signup.js";
+import BlogPage from "./pages/blogs/BlogsPage.js";
 import ContactPage from "./pages/Contact.js";
-import CoursesPage from "./pages/Courses";
+import CoursesPage from "./pages/courses/Courses.js";
 import { Toaster } from "react-hot-toast";
-import AddBlog from "./pages/AddBlog.js";
-import AddCourse from "./pages/AddCourse.js";
+import AddBlog from "./pages/blogs/AddBlog.js";
+import AddCourse from "./pages/courses/AddCourse.js";
 import Messages from "./pages/Messages.js";
-import ShowBlog from "./pages/ShowBlog.js";
-import LearnCourse from "./pages/LearnCourse.js";
-import ProfilePage from "./pages/Profile.js";
-import SettingsPage from "./pages/Settings.js";
+import ShowBlog from "./pages/blogs/ShowBlog.js";
+import LearnCourse from "./pages/courses/LearnCourse.js";
+import ProfilePage from "./pages/auth/Profile.js";
+import SettingsPage from "./pages/auth/Settings.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

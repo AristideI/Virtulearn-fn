@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
-import { umlCourse, pythonCourse } from "../courses";
-import { useAuthContext } from "../../context/AuthContext";
+import { umlCourse, pythonCourse } from "../../courses";
+import { useAuthContext } from "../../../context/AuthContext";
 
 export default function LearnCourse() {
   const id = useParams<{ id: string }>().id;

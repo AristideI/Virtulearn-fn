@@ -1,15 +1,15 @@
 import { useParams } from "react-router";
-import { useGetOneBlog } from "../hooks/useBlogs";
-import LoadingSection from "../components/LoadingSection";
+import { useGetOneBlog } from "../../hooks/useBlogs";
+import LoadingSection from "../../components/LoadingSection";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import toast from "react-hot-toast";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 import { useState } from "react";
 import axios from "axios";
-import { apiUrl } from "../utils/env";
-import useGetUsers from "../hooks/useUsers";
-import Comment from "../components/blogs/Comment";
+import { apiUrl } from "../../utils/env";
+import useGetUsers from "../../hooks/useUsers";
+import Comment from "../../components/blogs/Comment";
 dayjs.extend(relativeTime);
 
 export default function ShowBlog() {

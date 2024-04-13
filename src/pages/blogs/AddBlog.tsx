@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
-import LoadingSpinner from "../components/Loading";
-import uploadImage from "../utils/uploadImg";
-import createBlog from "../utils/createBlog";
+import LoadingSpinner from "../../components/Loading";
+import uploadImage from "../../utils/uploadImg";
+import createBlog from "../../utils/createBlog";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 

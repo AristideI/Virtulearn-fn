@@ -1,10 +1,10 @@
 import toast from "react-hot-toast";
-import LoadingSection from "../components/LoadingSection";
-import BlogCard from "../components/blogs/BlogCard";
-import BlogGrid from "../components/blogs/BlogGrid";
-import BlogsHero from "../components/blogs/Hero";
-import TopPicks from "../components/blogs/TopPicks";
-import { useGetBlogs } from "../hooks/useBlogs";
+import LoadingSection from "../../components/LoadingSection";
+import BlogCard from "../../components/blogs/BlogCard";
+import BlogGrid from "../../components/blogs/BlogGrid";
+import BlogsHero from "../../components/blogs/Hero";
+import TopPicks from "../../components/blogs/TopPicks";
+import { useGetBlogs } from "../../hooks/useBlogs";
 
 export default function BlogPage() {
   const { blogs, isLoading, error } = useGetBlogs();

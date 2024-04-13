@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { formInputs } from "../interfaces";
-import createUser from "../utils/createUser";
+import { formInputs } from "../../interfaces";
+import createUser from "../../utils/createUser";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import uploadImage from "../utils/uploadImg";
-import LoadingSpinner from "../components/Loading";
+import uploadImage from "../../utils/uploadImg";
+import LoadingSpinner from "../../components/Loading";
 
 export default function Signup() {
   const navigate = useNavigate();

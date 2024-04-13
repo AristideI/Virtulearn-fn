@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import CourseCard from "../components/courses/CourseCard";
-import { umlCourse, pythonCourse } from "../courses";
+import CourseCard from "../../components/courses/CourseCard";
+import { umlCourse, pythonCourse } from "../../courses";
 
 export default function CoursesPage() {
   const courses = [umlCourse, pythonCourse];
