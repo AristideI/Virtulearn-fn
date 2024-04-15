@@ -19,9 +19,10 @@ import AddBlog from "./pages/blogs/AddBlog.js";
 import AddCourse from "./pages/courses/AddCourse.js";
 import Messages from "./pages/Messages.js";
 import ShowBlog from "./pages/blogs/ShowBlog.js";
-import LearnCourse from "./pages/courses/LearnCourse.js";
+import ViewCourse from "./pages/courses/ViewCourse.js";
 import ProfilePage from "./pages/auth/Profile.js";
 import SettingsPage from "./pages/auth/Settings.js";
+import LearnCourse from "./pages/courses/LearnCourse.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,6 +49,11 @@ const router = createBrowserRouter(
         <Route path="courses" element={<CoursesPage />} />
         <Route
           path="courses/:id"
+          element={<ViewCourse />}
+          loader={redirectLoader}
+        />
+        <Route
+          path="courses/learn/:id"
           element={<LearnCourse />}
           loader={redirectLoader}
         />

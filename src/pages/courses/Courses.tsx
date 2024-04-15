@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import CourseCard from "../../components/courses/CourseCard";
-import { umlCourse, pythonCourse } from "../../courses";
+import useCourses from "../../hooks/useCourses";
+import LoadingSection from "../../components/LoadingSection";
 
 export default function CoursesPage() {
-  const courses = [umlCourse, pythonCourse];
+  const { courses, loading } = useCourses();
   const coursesCards = courses.map((course, ind) => (
     <CourseCard
       key={ind}
       title={course.title}
       coverImage={course.coverImage}
-      author={course.author}
-      enrolledStudents={course.students}
-      id={course.id}
+      author={course.authorId.firstName + " " + course.authorId.lastName}
+      enrolledStudents={course.students.length}
+      id={course._id}
+      createdAt={course.createdAt}
     />
   ));
   return (
@@ -33,7 +35,11 @@ export default function CoursesPage() {
           Add Course
         </Link>
       </section>
-      <section className="grid grid-cols-3 gap-4">{coursesCards}</section>
+      {loading ? (
+        <LoadingSection />
+      ) : (
+        <section className="grid grid-cols-3 gap-4">{coursesCards}</section>
+      )}
     </article>
   );
 }

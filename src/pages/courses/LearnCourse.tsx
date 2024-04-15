@@ -1,15 +1,21 @@
 import { useParams } from "react-router";
-import { umlCourse, pythonCourse } from "../../courses";
-import { useAuthContext } from "../../../context/AuthContext";
+import { useGetOneCourse } from "../../hooks/useCourses";
+import LoadingSection from "../../components/LoadingSection";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 export default function LearnCourse() {
   const id = useParams<{ id: string }>().id;
-  const course = id === "1" ? pythonCourse : umlCourse;
-  const { user } = useAuthContext();
+  const { course, loading } = useGetOneCourse(id as string);
+  const user = course?.authorId;
+  console.log(course);
 
-  return (
+  return loading ? (
+    <LoadingSection />
+  ) : (
     <article className="mx-16 md:mx-7 sm:mx-3 my-12 flex flex-col gap-8">
-      <p className="font-bold text-5xl mb-6">{course.title}</p>
+      <p className="font-bold text-5xl mb-6">{course?.title}</p>
       <section className="flex gap-6 items-center md:hidden group">
         <div className="relative">
           <div className="flex items-center gap-4 font-bold text-lg">
@@ -24,19 +30,21 @@ export default function LearnCourse() {
               <p>
                 {user?.firstName} {user?.lastName}
               </p>
-              <p className="font-normal text-base">3 days ago</p>
+              <p className="font-normal text-base">
+                {dayjs(course?.createdAt).fromNow()}
+              </p>
             </div>
           </div>
         </div>
       </section>
       <img
         className="w-full h-96 object-cover"
-        src={course.coverImage}
+        src={course?.coverImage}
         alt=""
       />
       <p className="font-bold text-3xl text-center">Chapters</p>
       <section>
-        {course.content.map((content, index) => (
+        {course?.content.map((content, index) => (
           <div key={index} className="flex gap-4 flex-col">
             <p className="font-bold text-xl">{index + 1}.</p>
             <p className="text-xl">{content.message}</p>
