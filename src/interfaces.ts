@@ -80,3 +80,28 @@ export interface DiscussionDto {
   createdAt: string;
   _id: string;
 }
+
+export interface Content {
+  title: string;
+  message: string;
+  link: string;
+}
+
+export interface CourseDto {
+  _id: string;
+  authorId: UserDto;
+  title: string;
+  description: string;
+  coverImage: string;
+  students: UserDto[];
+  content: Content[];
+  discussions: DiscussionDto[];
+  createdAt: string;
+}
+
+export interface CreateCourseDto {
+  title: string;
+  description: string;
+  coverImage: string;
+  content: Content[];
+}
