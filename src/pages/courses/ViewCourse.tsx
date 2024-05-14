@@ -16,6 +16,9 @@ export default function ViewCourse() {
   const user = course?.authorId;
   const token = localStorage.getItem("token");
   const [isEnrolling, setIsEnrolling] = useState(false);
+  const { user: currentUser } = JSON.parse(
+    localStorage.getItem("user") || "{}"
+  );
   const navigate = useNavigate();
 
   async function enrollCourse() {
@@ -31,6 +34,14 @@ export default function ViewCourse() {
       toast.error("Failed to enroll course, please try again later.");
     } finally {
       setIsEnrolling(false);
+    }
+  }
+
+  if (!loading) {
+    console.log(course?.students);
+    if (course?.students.includes(currentUser?._id)) {
+      console.log("sample");
+      navigate(`/courses/learn/${id}`);
     }
   }
 
