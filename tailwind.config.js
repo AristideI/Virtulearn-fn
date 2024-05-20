@@ -20,6 +20,7 @@ export default {
       PurpleD: "#301C56",
       white: "#F3F9FF",
       black: "#191919",
+      red: "#FF0000",
     },
     extend: {},
   },
